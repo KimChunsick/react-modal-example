@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from '@emotion/styled';
+import { useState } from 'react';
+import { Button } from './components/Button';
+import { Modal } from './components/Modal';
 
 function App() {
+  // Modal의 열림 여부 값
+  const [showModal, setShowModal] = useState<boolean>(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Page>
+        <Button onClick={() => setShowModal(true)}>
+          모달 띄우기
+        </Button>
+      </Page>
+      <Modal show={showModal} onClose={() => setShowModal(false)} />
+    </>
   );
 }
+
+const Page = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+`
 
 export default App;
