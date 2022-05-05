@@ -8,14 +8,12 @@ function App() {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   return (
-    <>
-      <Page>
-        <Button onClick={() => setShowModal(true)}>
-          모달 띄우기
-        </Button>
-      </Page>
+    <Page>
+      <Button onClick={() => setShowModal(true)}>
+        모달 띄우기
+      </Button>
       <Modal show={showModal} onClose={() => setShowModal(false)} />
-    </>
+    </Page>
   );
 }
 
